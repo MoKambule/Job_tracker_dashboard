@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { supabase } from "../supabaseClient";
 import { useNavigate } from "react-router-dom";
+import "./Create.css";
 
 function Create() {
     const [company, setCompany] = useState("")
@@ -37,8 +38,11 @@ function Create() {
                 Add new job
             </h2>
             <form onSubmit={addJob}>
+                <label >Company name:</label>
                 <input type="text" placeholder="Company name" value={company} onChange={(e) => setCompany(e.target.value)} required/>
+                <label>Position applied for:</label>
                 <input type="text" placeholder="Position" value={position} onChange={(e) => setPosition(e.target.value)} required/>
+                <label>Status:</label>
                 <input type="text" placeholder="Status" value={status} onChange={(e) => setStatus(e.target.value)} required/>
                     <select value={status} onChange={(e) => setStatus(e.target.value)}>
                         <option value="Applied">Applied</option>
@@ -46,7 +50,7 @@ function Create() {
                         <option value="Offer">Offer</option>
                         <option value="Rejected">Rejected</option>
                     </select>
-
+                <label>Applied on:</label>
                 <input type="text" placeholder="Applied_Date" value={applied_date} onChange={(e) => setAppliedDate(e.target.value)} required/>
                 <button type="submit">Add Job</button>
             </form>
