@@ -5,3 +5,117 @@
     font-family: "Trirong", serif;
     font-size: 30px;
 }
+
+/* Heading */
+.heading {
+  text-align: center;        /* centers text horizontally */
+  color: rgb(98, 110, 211);
+  font-family: "Trirong", serif;
+  font-size: 30px;
+  margin: 20px 0; 
+  margin-left: -180px;       /* spacing top & bottom */
+}
+
+/* Container for everything */
+.jobs-container {
+  padding: 40px;
+}
+
+/* Layout: form on left, cards on right */
+.main-content {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* Form styles */
+.form-wrapper {
+  flex: 1;
+  max-width: 300px;
+}
+
+form {
+  border-radius: 5px;
+  background-color: rgb(232, 239, 242);
+  padding: 50px 30px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+}
+
+label {
+  display: block;
+}
+
+input[type=text],
+input[type=date],
+select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+button[type=submit] {
+  width: 100%;
+  background-color: #445ee0;
+  color: white;
+  padding: 14px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type=submit]:hover {
+  background-color: #ecb9f4;
+}
+
+/* Cards wrapper */
+.cards-wrapper {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Individual job card */
+.job-card {
+  position: relative;
+  background: whitesmoke;
+  padding: 20px;
+  border-radius: 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+}
+
+.company {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: rgb(98, 110, 211);
+}
+
+.status {
+  position: absolute;
+  bottom: 16px;
+  right: 20px;
+  font-weight: 1000;
+  font-size: 18px;
+  color: #59bc6a;
+  padding-right: 40px;
+}
+
+.applied-date {
+  position: absolute;
+  bottom: 16px;
+  right: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}

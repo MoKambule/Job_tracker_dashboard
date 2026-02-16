@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../supabaseClient"; 
-import "./Home.css";
+import Create from "./create";
 
 function Home(){
     const [jobs, setJobs] = useState([])
@@ -23,6 +23,10 @@ function Home(){
 
     return (
         <div className="jobs-container">
+            <div className="form-Wrapper">
+                <Create/>
+            </div>
+            <div className="main-content">
             <h2 className="heading">jobs Applied to:</h2>
             {jobs.length === 0 ? (
                 <p>No jobs applied to yet</p>
@@ -42,7 +46,7 @@ function Home(){
             )}
         </div>
 
-
+        </div>
     )
 }
 

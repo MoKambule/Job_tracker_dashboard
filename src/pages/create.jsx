@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { supabase } from "../supabaseClient";
 import { useNavigate } from "react-router-dom";
-import "./Create.css";
 
 function Create() {
     const [company, setCompany] = useState("")
