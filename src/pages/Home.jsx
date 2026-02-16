@@ -10,6 +10,7 @@ function Home(){
             const {data, error} = await supabase
             .from("jobs")
             .select("*")
+            .order("applied_date", { ascending: false });
 
             if (error){
                 console.error("could not fetch jobs")
@@ -21,32 +22,40 @@ function Home(){
         fetchJobs()
     }, [])
 
+    const handleAddJob = (newJob) => {
+    setJobs((prev) => [newJob, ...prev]); // add the new job at the top
+  };
     return (
-        <div className="jobs-container">
-            <div className="form-Wrapper">
-                <Create/>
-            </div>
-            <div className="main-content">
-            <h2 className="heading">jobs Applied to:</h2>
-            {jobs.length === 0 ? (
-                <p>No jobs applied to yet</p>
-            ): (
-                <div className="cards-wrapper">
-                {jobs.map((job) => (
-                    <div key={job.id} className="job-card">
-                        <h3 className="company">Company: {job.company}</h3>
-                        <p>position: {job.position}</p>
-                        <p>applied_date: {job.applied_date}</p>
-                        <div className="status">
-                            <p> {job.status}</p>
-                            </div>
-                    </div>
-                ))}
-                </div>
-            )}
-        </div>
+<div className="jobs-container">
+  <div className="main-layout">
+    {/* Left: Form */}
+    <div className="form-wrapper">
+      <Create />
+    </div>
 
+    {/* Right: Jobs cards */}
+    <div className="cards-wrapper-container">
+      <h2 className="heading">Jobs Applied to:</h2>
+
+      {jobs.length === 0 ? (
+        <p>No jobs applied to yet</p>
+      ) : (
+        <div className="cards-wrapper">
+          {jobs.map((job) => (
+            <div key={job.id} className="job-card">
+              <h3 className="company">Company: {job.company}</h3>
+              <p>Position: {job.position}</p>
+              <p>Applied: {job.applied_date}</p>
+              <div className="status">
+                <p>{job.status}</p>
+              </div>
+            </div>
+          ))}
         </div>
+      )}
+    </div>
+  </div>
+</div>
     )
 }
 

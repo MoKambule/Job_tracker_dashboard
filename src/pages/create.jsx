@@ -25,12 +25,20 @@ function Create() {
          if (error) {
             console.error("Insert error:", error)
             alert(error.message)
-        } else {
-            console.log("Inserted:", data)
-            // Redirect to home to see the new list
-            navigate("/")
+        }  else {
+        console.log("Inserted:", data);
+        // Reset form fields
+        setCompany("");
+        setPosition("");
+        setStatus("");
+        setAppliedDate("");
+
+        // Optional: update parent state to add new job to the cards immediately
+        if (props.onAddJob) {
+            props.onAddJob(data[0]); // pass the inserted job to parent
         }
     }
+};
     return (
         <div>
             <h2>
