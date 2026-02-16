@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../supabaseClient"; 
+import "./Home.css";
 
 function Home(){
     const [jobs, setJobs] = useState([])
@@ -21,19 +22,23 @@ function Home(){
     }, [])
 
     return (
-        <div>
-            <h2>jobs Applied to</h2>
+        <div className="jobs-container">
+            <h2 className="heading">jobs Applied to:</h2>
             {jobs.length === 0 ? (
                 <p>No jobs applied to yet</p>
             ): (
-                jobs.map((job) => (
-                    <div key={job.id}>
-                        <h3>Company: {job.company}</h3>
+                <div className="cards-wrapper">
+                {jobs.map((job) => (
+                    <div key={job.id} className="job-card">
+                        <h3 className="company">Company: {job.company}</h3>
                         <p>position: {job.position}</p>
-                        <p>status: {job.status}</p>
                         <p>applied_date: {job.applied_date}</p>
+                        <div className="status">
+                            <p> {job.status}</p>
+                            </div>
                     </div>
-                ))
+                ))}
+                </div>
             )}
         </div>
 
