@@ -1,26 +1,19 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
-import Home from "./pages/Home"
-
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Create from "./pages/Create";
+import Navbar from "./pages/Navbar";
 
 function App() {
   return (
     <BrowserRouter>
-      <nav >
-        <h1>
-          Job tracking dashboard
-        </h1>
-        <Link to="/" >Home</Link>
-        
-      </nav>
+      <Navbar />
 
       <Routes>
-        <Route path="/" element={<Home/>}/>
-        
+        <Route path="/" element={<Home />} />
+        <Route path="/create" element={<Create />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
-
+export default App;
