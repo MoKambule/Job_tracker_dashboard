@@ -26,15 +26,41 @@ function Home(){
     const handleAddJob = (newJob) => {
     setJobs((prev) => [newJob, ...prev]); // add the new job at the top
   };
+
+    const handleStatusChange = async (e, job) => {
+    const newStatus = e.target.value;
+
+    const { data, error } = await supabase
+      .from("jobs")
+      .update({ status: newStatus })
+      .eq("id", job.id);
+
+    if (error) {
+      console.error("Update failed:", error);
+      alert("Could not update status");
+    } else {
+      if (newStatus === "rejected") {
+      
+        setJobs(prev => prev.filter(j => j.id !== job.id));
+       
+        navigate("/rejected");
+      } else {
+       
+        setJobs(prev =>
+          prev.map(j => (j.id === job.id ? { ...j, status: newStatus } : j))
+        );
+      }
+    }
+  };
     return (
 <div className="jobs-container">
   <div className="main-layout">
-    {/* Left: Form */}
+   
     <div className="form-wrapper">
       <Create />
     </div>
 
-    {/* Right: Jobs cards */}
+   
     <div className="cards-wrapper-container">
       <h2 className="heading">Jobs Applied to:</h2>
 
@@ -48,8 +74,8 @@ function Home(){
               <p>Position: {job.position}</p>
               <p>Applied: {job.applied_date}</p>
 
-              {/* editing status */}
-              <select className="status" value={job.status} onChange={(e) =>updateJobStatus(job.id, e.target.value, setJobs) }>
+             
+              <select className="status" value={job.status} onChange={(e) =>updateJobStatus(job.id, e.target.value, setJobs, navigate) }>
                     <option value="Applied">Applied</option>
                     <option value="Interview">Interview</option>
                     <option value="Offer">Offer</option>

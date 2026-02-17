@@ -10,10 +10,17 @@ export const updateJobStatus = async (jobId, newStatus, setJobs) => {
     console.error("Update failed:", error);
     alert("Could not update status");
   } else {
-
-    if (setJobs) {
-      setJobs((prevJobs) =>
-        prevJobs.map((j) => (j.id === jobId ? { ...j, status: newStatus } : j))
+    if (newStatus === "Rejected") {
+     
+      setJobs(prev => prev.filter(job => job.id !== jobId));
+      
+      navigate("/rejected");
+    }
+    
+    else {
+    
+      setJobs(prev =>
+        prev.map(job => (job.id === jobId ? { ...job, status: newStatus } : job))
       );
     }
   }

@@ -11,9 +11,8 @@ function Navbar() {
           <NavLink to="/" className="nav-link">
             Home
           </NavLink>
-
-          <NavLink to="/analytics" className="nav-link">
-            Analytics
+            <NavLink to="/rejected" className="nav-link">
+            rejection pile
           </NavLink>
         </nav>
       </div>
