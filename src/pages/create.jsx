@@ -44,7 +44,7 @@ function Create() {
             <h2>
                 Add new job
             </h2>
-            <form onSubmit={addJob}>
+            <form className="form-wrapper" onSubmit={addJob}>
                 <label >Company name:</label>
                 <input type="text" placeholder="Company name" value={company} onChange={(e) => setCompany(e.target.value)} required/>
                 <label>Position applied for:</label>

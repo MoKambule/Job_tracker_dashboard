@@ -43,7 +43,7 @@ function Home(){
         <div className="cards-wrapper">
           {jobs.map((job) => (
             <div key={job.id} className="job-card">
-              <h3 className="company">Company: {job.company}</h3>
+              <h3 className="company"> {job.company}</h3>
               <p>Position: {job.position}</p>
               <p>Applied: {job.applied_date}</p>
               <div className="status">

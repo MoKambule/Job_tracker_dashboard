@@ -12,10 +12,6 @@ function Navbar() {
             Home
           </NavLink>
 
-          <NavLink to="/create" className="nav-link">
-            Add Job
-          </NavLink>
-
           <NavLink to="/analytics" className="nav-link">
             Analytics
           </NavLink>

@@ -1,10 +1,9 @@
-/* Navbar heading */
-.nav-heading {
-    padding-left: 10px;
-    margin: 0 auto;
-    color: rgb(98, 110, 211);
-    font-family: "Trirong", serif;
-    font-size: 30px;
+ body {
+    height: 100%;
+    margin: 0;
+    padding-top: 10px; 
+    overflow: hidden;
+    background-color: #f8f5f7;
 }
 
 /* Page heading above cards */
@@ -13,41 +12,59 @@
     color: rgb(98, 110, 211);
     font-family: "Trirong", serif;
     font-size: 28px;
-    margin: 20px 0 40px 0; /* top 20px, bottom 40px */
+    margin: 20px 0 40px 0; 
 }
 
 /* Container for entire section */
 .jobs-container {
-    padding: 40px 60px; /* top/bottom 40px, left/right 60px */
+    padding: 60px 80px;
 }
 
 /* Main layout: left = form, right = cards */
 .main-layout {
     display: grid;
-    grid-template-columns: 320px 1fr; /* form fixed width, cards flexible */
-    gap: 40px;
+    grid-template-columns: 380px 1fr;
     align-items: start;
+    padding-top: 1px;
 }
 
 /* Form styling */
 .form-wrapper {
-    position: sticky; /* stays in view when scrolling */
+    position: sticky; 
     top: 20px;
+    
 }
 
 /* Cards section container */
 .cards-wrapper-container {
-    display: flex;
-    flex-direction: column;
+   overflow-y: auto;
+   max-height:  calc(100vh - 90px); 
+   padding-bottom: 40px;
+   scrollbar-width: thin;
+   scrollbar-color: #a0c4ff transparent;
+}
+.cards-wrapper-container::-webkit-scrollbar {
+  width: 6px;                    
+}
+
+.cards-wrapper-container::-webkit-scrollbar-track {
+  background: transparent;        
+}
+
+.cards-wrapper-container::-webkit-scrollbar-thumb {
+  background-color: #4f5662;     
+  border-radius: 3px;
 }
 
 /* Cards grid */
 .cards-wrapper {
     display: grid;
     grid-template-columns: 1fr;
-    padding-right: 200px;
-    gap: 20px;
+    padding-right: 100px;
+    gap: 40px;
     margin-left: 40px;
+    
+   
 }
 
 /* Individual job cards */
@@ -94,16 +111,19 @@
 /* Form styling */
 form {
     border-radius: 8px;
-    background-color: rgb(232, 239, 242);
-    padding: 40px 30px;
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+    background-color: whitesmoke;
+    padding: 25px 20px;          
+    width: 320px;                
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
 }
 
 /* Form labels */
 label {
     display: block;
     font-weight: 600;
-    margin-top: 12px;
+    margin-top: 8px;
+    font-size: 14px;
 }
 
 /* Input fields and select */
@@ -111,24 +131,25 @@ input[type=text],
 input[type=date],
 select {
     width: 100%;
-    padding: 12px;
-    margin: 8px 0;
+    padding: 10px;              
+    margin: 6px 0;
     border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: 4px;
     box-sizing: border-box;
+    font-size: 14px;
 }
 
 /* Submit button */
 button[type=submit] {
     width: 100%;
-    background-color: #445ee0;
+    background-color: #8b327e;
     color: white;
-    padding: 14px;
-    margin-top: 12px;
+    padding: 10px;
+    margin-top: 10px;
     border: none;
-    border-radius: 6px;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 button[type=submit]:hover {
