@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../supabaseClient"; 
 import Create from "./create";
+import { updateJobStatus } from "./Update";
 
 function Home(){
     const [jobs, setJobs] = useState([])
@@ -46,9 +47,15 @@ function Home(){
               <h3 className="company"> {job.company}</h3>
               <p>Position: {job.position}</p>
               <p>Applied: {job.applied_date}</p>
-              <div className="status">
-                <p>{job.status}</p>
-              </div>
+
+              {/* editing status */}
+              <select className="status" value={job.status} onChange={(e) =>updateJobStatus(job.id, e.target.value, setJobs) }>
+                    <option value="Applied">Applied</option>
+                    <option value="Interview">Interview</option>
+                    <option value="Offer">Offer</option>
+                    <option value="Rejected">Rejected</option>
+              </select>
+              
             </div>
           ))}
         </div>
